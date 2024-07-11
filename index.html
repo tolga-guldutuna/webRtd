@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Video Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Random Video Chat</h1>
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+        <div class="controls">
+            <button id="startButton" class="control-button">Start</button>
+            <button id="hangupButton" class="control-button">Hang Up</button>
+            <button id="muteAudioButton" class="control-button">Mute Audio</button>
+            <button id="muteVideoButton" class="control-button">Mute Video</button>
+            <label for="volumeControl">Volume:</label>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
+            <label for="videoQuality">Video Quality:</label>
+            <select id="videoQuality">
+                <option value="default">Default</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button id="generateLinkButton" class="control-button">Generate Link</button>
+            <input type="text" id="roomLink" readonly>
+        </div>
+        <div class="chat">
+            <div id="chatBox"></div>
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button id="sendButton" class="control-button">Send</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
